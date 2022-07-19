@@ -1,7 +1,7 @@
 
 //Sintaxe JSX
 import { useState } from 'react'
-import { Item, Container } from './styles'
+import { Item, Container, TodoList, Input, Button, List } from './styles'
 
 function App(){ 
     const [tarefas, setTarefas] = useState([])
@@ -18,16 +18,18 @@ function App(){
 
     return (
         <Container>
-            <input placeholder="Digite a sua tarefa" onChange={quandoEuDigitoNoInput}/>
-            <button onClick={quandoClicaNoBotao}>Adicionar Tarefa</button>
+            <TodoList>
+                <Input placeholder="Digite a sua tarefa" onChange={quandoEuDigitoNoInput}/>
+                <Button onClick={quandoClicaNoBotao}>Adicionar Tarefa</Button>
 
-            <ul>
-                {
-                    tarefas.map((item, index) => (
-                        <Item key={index}>{item}</Item>
-                    ))
-                }
-            </ul>
+                <List>
+                    {
+                        tarefas.map((item, index) => (
+                            <Item key={index}>{item}</Item>
+                        ))
+                    }
+                </List>
+            </TodoList>
         </Container>
     )
 }
