@@ -1,6 +1,7 @@
 
 //Sintaxe JSX
 import { useState } from 'react'
+import { Item, Container } from './styles'
 
 function App(){ 
     const [tarefas, setTarefas] = useState([])
@@ -16,18 +17,18 @@ function App(){
 
 
     return (
-        <div>
+        <Container>
             <input placeholder="Digite a sua tarefa" onChange={quandoEuDigitoNoInput}/>
             <button onClick={quandoClicaNoBotao}>Adicionar Tarefa</button>
 
             <ul>
                 {
-                    tarefas.map(item => (
-                        <li>{item}</li>
+                    tarefas.map((item, index) => (
+                        <Item key={index}>{item}</Item>
                     ))
                 }
             </ul>
-        </div>
+        </Container>
     )
 }
 
